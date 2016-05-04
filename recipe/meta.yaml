@@ -32,7 +32,7 @@ test:
     files:
         - p0_01.j2k
     commands:
-        - opj_dump -i p0_01.j2k
+        - j2k_dump -i p0_01.j2k
         - conda inspect linkages -n _test openjpeg  # [linux]
 
 about:
