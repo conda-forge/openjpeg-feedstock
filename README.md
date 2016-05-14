@@ -69,6 +69,7 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/openjpeg-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/openjpeg-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/openjpeg-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/openjpeg-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/openjpeg-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/openjpeg-feedstock/branch/master)
