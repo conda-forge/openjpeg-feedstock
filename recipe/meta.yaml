@@ -8,7 +8,7 @@ source:
     md5: 3e1c451c087f8462955426da38aa3b3d
 
 build:
-    number: 5
+    number: 6
     features:
         - vc9  # [win and py27]
         - vc10  # [win and py34]
@@ -19,12 +19,12 @@ requirements:
         - python  # [win]
         - cmake
         - libtiff 4.0.*
-        - libpng 1.6*
-        - zlib 1.2*
+        - libpng >=1.6.21,<1.7
+        - zlib 1.2.*
     run:
         - libtiff 4.0.*
-        - libpng 1.6*
-        - zlib 1.2*
+        - libpng >=1.6.21,<1.7
+        - zlib 1.2.*
 
 test:
     requires:
