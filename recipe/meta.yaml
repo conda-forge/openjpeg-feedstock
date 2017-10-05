@@ -9,27 +9,20 @@ source:
   sha256: 3dc787c1bb6023ba846c2a0d9b1f6e179f1cd255172bde9eb75b01f1e6c7d71a
 
 build:
-  number: 2
-  skip: True  # [win and py36]
+  number: 1
   features:
-    - vc9  # [win and py27]
-    - vc14  # [win and (py35 or py36)]
+    - vc{{ vc }}  # [win]
+  run_exports:
+    # nothing known on abi tracker, leaving at default
+    - {{ pin_subpackage('openjpeg') }}
 
 requirements:
   build:
-    - python  # [win]
     - cmake
-    - libtiff >=4.0.8,<4.0.10
-    - libpng >=1.6.32,<1.6.35
-    - zlib 1.2.11
-    - vc 9  # [win and py27]
-    - vc 14  # [win and (py35 or py36)]
-  run:
-    - libtiff >=4.0.8,<4.0.10
-    - libpng >=1.6.32,<1.6.35
-    - zlib 1.2.11
-    - vc 9  # [win and py27]
-    - vc 14  # [win and (py35 or py36)]
+  host:
+    - libtiff
+    - libpng
+    - zlib
 
 test:
   files:
