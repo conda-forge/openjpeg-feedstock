@@ -9,9 +9,7 @@ source:
   sha256: 3dc787c1bb6023ba846c2a0d9b1f6e179f1cd255172bde9eb75b01f1e6c7d71a
 
 build:
-  number: 1
-  features:
-    - vc{{ vc }}  # [win]
+  number: 2
   run_exports:
     # nothing known on abi tracker, leaving at default
     - {{ pin_subpackage('openjpeg') }}
