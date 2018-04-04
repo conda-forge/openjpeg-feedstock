@@ -11,7 +11,8 @@ source:
 build:
   number: 2
   run_exports:
-    # nothing known on abi tracker, leaving at default
+    # good compatibility in 2.x series, check before new release
+    # http://www.openjpeg.org/abi-check/timeline/openjpeg/
     - {{ pin_subpackage('openjpeg') }}
 
 requirements:
