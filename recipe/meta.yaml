@@ -30,8 +30,8 @@ test:
     - p0_01.j2k
   commands:
     - opj_dump -i p0_01.j2k
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
+    - conda inspect linkages -p $PREFIX openjpeg  # [not win]
+    - conda inspect objects -p $PREFIX openjpeg  # [osx]
 
 about:
     home: http://www.openjpeg.org/
