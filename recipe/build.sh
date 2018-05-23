@@ -1,17 +1,26 @@
 #!/bin/bash
 
-mkdir build && cd build
+declare -a CMAKE_PLATFORM_FLAGS
+if [[ ${target_platform} == osx-64 ]]; then
+  CMAKE_PLATFORM_FLAGS+=(-DCMAKE_OSX_SYSROOT="${CONDA_BUILD_SYSROOT}")
+fi
 
-cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
-      -D TIFF_LIBRARY=$PREFIX/lib/libtiff${SHLIB_EXT} \
-      -D TIFF_INCLUDE_DIR=$PREFIX/include \
-      -D PNG_LIBRARY_RELEASE=$PREFIX/lib/libpng${SHLIB_EXT} \
-      -D PNG_PNG_INCLUDE_DIR=$PREFIX/include \
-      -D ZLIB_LIBRARY=$PREFIX/lib/libz${SHLIB_EXT} \
-      -D ZLIB_INCLUDE_DIR=$PREFIX/include \
-      $SRC_DIR
+mkdir build || true
+pushd build
 
-make -j${CPU_COUNT} ${VERBOSE_CM}
-ctest
-make install -j${CPU_COUNT}
-make clean
+  cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
+        -DTIFF_LIBRARY=$PREFIX/lib/libtiff${SHLIB_EXT} \
+        -DTIFF_INCLUDE_DIR=$PREFIX/include \
+        -DPNG_LIBRARY_RELEASE=$PREFIX/lib/libpng${SHLIB_EXT} \
+        -DPNG_PNG_INCLUDE_DIR=$PREFIX/include \
+        -DZLIB_LIBRARY=$PREFIX/lib/libz${SHLIB_EXT} \
+        -DZLIB_INCLUDE_DIR=$PREFIX/include \
+        -DBUILD_JPWL=OFF \
+        "${CMAKE_PLATFORM_FLAGS[@]}" \
+        ..
+
+  make -j${CPU_COUNT} ${VERBOSE_CM}
+  ctest
+  make install -j${CPU_COUNT}
+
+popd

@@ -7,9 +7,11 @@ package:
 source:
   url: https://github.com/uclouvain/openjpeg/archive/v{{ version }}.tar.gz
   sha256: 3dc787c1bb6023ba846c2a0d9b1f6e179f1cd255172bde9eb75b01f1e6c7d71a
+  patches:
+    - CVE-2018-7648-6d8c0c06ee32dc03ba80acd48334e98728e56cf5.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # good compatibility in 2.x series, check before new release
     # http://www.openjpeg.org/abi-check/timeline/openjpeg/
@@ -17,9 +19,9 @@ build:
 
 requirements:
   build:
-    - cmake
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - cmake
     - make
   host:
     - libtiff
@@ -31,8 +33,6 @@ test:
     - p0_01.j2k
   commands:
     - opj_dump -i p0_01.j2k
-    - conda inspect linkages -p $PREFIX openjpeg  # [not win]
-    - conda inspect objects -p $PREFIX openjpeg  # [osx]
 
 about:
     home: http://www.openjpeg.org/
@@ -42,5 +42,6 @@ about:
 
 extra:
   recipe-maintainers:
-    - ocefpaf
     - gillins
+    - mingwandroid
+    - ocefpaf
