@@ -1,4 +1,4 @@
-{% set version = "2.3.1" %}
+{% set version = "2.4.0" %}
 
 package:
   name: openjpeg
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://github.com/uclouvain/openjpeg/archive/v{{ version }}.tar.gz
-  sha256: 63f5a4713ecafc86de51bfad89cc07bb788e9bba24ebbf0c4ca637621aadb6a9
+  sha256: 8702ba68b442657f11aaeb2b338443ca8d5fb95b0d845757968a7be31ef7f16d
 
 build:
-  number: 3
-  skip: True  # [win and vc<14]
+  number: 0
+  skip: true  # [win and vc<14]
   run_exports:
     # good compatibility in 2.x series, check before new release
     # http://www.openjpeg.org/abi-check/timeline/openjpeg/
@@ -39,10 +39,10 @@ test:
     - opj_dump -i p0_01.j2k
 
 about:
-    home: http://www.openjpeg.org/
-    license: BSD-2-Clause
-    license_file: LICENSE
-    summary: 'An open-source JPEG 2000 codec written in C'
+  home: http://www.openjpeg.org/
+  license: BSD-2-Clause
+  license_file: LICENSE
+  summary: An open-source JPEG 2000 codec written in C
 
 extra:
   recipe-maintainers:
