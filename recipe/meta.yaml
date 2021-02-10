@@ -11,11 +11,15 @@ source:
     - CVE-2018-7648-6d8c0c06ee32dc03ba80acd48334e98728e56cf5.patch
 
 build:
-  number: 1
+  number: 2
   run_exports:
     # good compatibility in 2.x series, check before new release
     # http://www.openjpeg.org/abi-check/timeline/openjpeg/
     - {{ pin_subpackage('openjpeg') }}
+  ignore_run_exports:
+    # Needed as a transitive build-time dependency to enable PNG support but
+    # is not actually required by the output binaries.
+    - zlib
 
 requirements:
   build:
