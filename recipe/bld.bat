@@ -9,6 +9,7 @@ cmake -GNinja ^
       -D PNG_PNG_INCLUDE_DIR=%LIBRARY_INC% ^
       -D ZLIB_LIBRARY=%LIBRARY_LIB%\zlib.lib ^
       -D ZLIB_INCLUDE_DIR=%LIBRARY_INC% ^
+      -D BUILD_JP3D=ON ^
       -D CMAKE_BUILD_TYPE=Release ^
       %SRC_DIR%
 if errorlevel 1 exit 1

@@ -16,6 +16,7 @@ pushd build
         -DZLIB_LIBRARY=$PREFIX/lib/libz${SHLIB_EXT} \
         -DZLIB_INCLUDE_DIR=$PREFIX/include \
         -DBUILD_JPWL=OFF \
+        -DBUILD_JP3D=ON \
         "${CMAKE_PLATFORM_FLAGS[@]}" \
         $SRC_DIR
 
