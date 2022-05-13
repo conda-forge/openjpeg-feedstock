@@ -1,4 +1,4 @@
-{% set version = "2.4.0" %}
+{% set version = "2.5.0" %}
 
 package:
   name: openjpeg
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/uclouvain/openjpeg/archive/v{{ version }}.tar.gz
-  sha256: 8702ba68b442657f11aaeb2b338443ca8d5fb95b0d845757968a7be31ef7f16d
+  sha256: 0333806d6adecc6f7a91243b2b839ff4d2053823634d4f6ed7a59bc87409122a
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     # good compatibility in 2.x series, check before new release
