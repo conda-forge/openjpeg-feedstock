@@ -1,7 +1,7 @@
 mkdir build
 cd build
 
-cmake -G "%CMAKE_GENERATOR%" ^
+cmake -GNinja ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -D TIFF_LIBRARY=%LIBRARY_LIB%\tiff.lib ^
       -D TIFF_INCLUDE_DIR=%LIBRARY_INC% ^
