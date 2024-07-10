@@ -9,6 +9,8 @@ mkdir build || true
 pushd build
 
   cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DBUILD_SHARED_LIBS=ON \
         -DTIFF_LIBRARY=$PREFIX/lib/libtiff${SHLIB_EXT} \
         -DTIFF_INCLUDE_DIR=$PREFIX/include \
         -DPNG_LIBRARY_RELEASE=$PREFIX/lib/libpng${SHLIB_EXT} \
