@@ -1,7 +1,7 @@
 mkdir build
 cd build
 
-cmake -GNinja ^
+cmake %CMAKE_ARGS% -GNinja ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -D TIFF_LIBRARY=%LIBRARY_LIB%\tiff.lib ^
       -D TIFF_INCLUDE_DIR=%LIBRARY_INC% ^
@@ -22,5 +22,7 @@ cmake --build . --config Release --target install
 if errorlevel 1 exit 1
 
 :: Test.
+if not %CONDA_BUILD_SKIP_TESTS%==1 (
 ctest -C Release
+)
 if errorlevel 1 exit 1
