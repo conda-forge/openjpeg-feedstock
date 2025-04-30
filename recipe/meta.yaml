@@ -17,7 +17,7 @@ build:
 
 requirements:
   build:
-    - cmake
+    - cmake <4
     - make  # [not win]
     - ninja  # [win]
     - {{ compiler('c') }}
