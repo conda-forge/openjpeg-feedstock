@@ -7,9 +7,14 @@ package:
 source:
   url: https://github.com/uclouvain/openjpeg/archive/v{{ version }}.tar.gz
   sha256: 368fe0468228e767433c9ebdea82ad9d801a3ad1e4234421f352c8b06e7aa707
+  patches:
+    # Prevent link failures for library users on Windows due to spurious
+    # "Libs.private: -lm"
+    # https://github.com/uclouvain/openjpeg/pull/1591
+    - pkgconfig-private-libs.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # good compatibility in 2.x series, check before new release
     # http://www.openjpeg.org/abi-check/timeline/openjpeg/
