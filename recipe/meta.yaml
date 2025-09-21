@@ -7,11 +7,6 @@ package:
 source:
   url: https://github.com/uclouvain/openjpeg/archive/v{{ version }}.tar.gz
   sha256: a695fbe19c0165f295a8531b1e4e855cd94d0875d2f88ec4b61080677e27188a
-  patches:
-    # Prevent link failures for library users on Windows due to spurious
-    # "Libs.private: -lm"
-    # https://github.com/uclouvain/openjpeg/pull/1591
-    - pkgconfig-private-libs.patch
 
 build:
   number: 0
