@@ -27,9 +27,9 @@ requirements:
     - make   # [unix]
     - ninja  # [win]
   host:
-    - libtiff {{ libtiff }}
-    - libpng {{ libpng }}
-    - zlib {{ zlib }}
+    - libtiff
+    - libpng
+    - zlib
 
 test:
   files:
