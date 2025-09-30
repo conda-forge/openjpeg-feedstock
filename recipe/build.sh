@@ -21,8 +21,8 @@ pushd build
         "${CMAKE_PLATFORM_FLAGS[@]}" \
         ..
 
-  make -j${CPU_COUNT} ${VERBOSE_CM}
+  cmake --build . --config Release --parallel ${CPU_COUNT} --verbose
   ctest -C Release -j${CPU_COUNT}
-  make install -j${CPU_COUNT}
+  cmake --build . --config Release --target install --parallel ${CPU_COUNT}
 
 popd

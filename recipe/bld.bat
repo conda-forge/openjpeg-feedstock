@@ -15,11 +15,11 @@ cmake -GNinja ^
       %SRC_DIR%
 
 :: Build.
-cmake --build . --config Release
+cmake --build . --config Release --verbose
 if errorlevel 1 exit 1
 
 :: Install.
-cmake --build . --config Release --target install
+cmake --build . --config Release --target install --verbose
 if errorlevel 1 exit 1
 
 :: Test.
