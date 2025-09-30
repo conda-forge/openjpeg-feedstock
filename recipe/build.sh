@@ -22,7 +22,7 @@ pushd build
         ..
 
   make -j${CPU_COUNT} ${VERBOSE_CM}
-  ctest
+  ctest -C Release -j${CPU_COUNT}
   make install -j${CPU_COUNT}
 
 popd
