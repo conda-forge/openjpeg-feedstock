@@ -18,7 +18,6 @@ pushd build
         -DPNG_PNG_INCLUDE_DIR=$PREFIX/include \
         -DZLIB_LIBRARY=$PREFIX/lib/libz${SHLIB_EXT} \
         -DZLIB_INCLUDE_DIR=$PREFIX/include \
-        -DBUILD_JPWL=OFF \
         "${CMAKE_PLATFORM_FLAGS[@]}" \
         ..
 
