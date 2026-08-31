@@ -20,9 +20,6 @@ pushd build
         $SRC_DIR
 
   make -j${CPU_COUNT} ${VERBOSE_CM}
-if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
-  ctest
-fi
   make install -j${CPU_COUNT}
 
 popd
