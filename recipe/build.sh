@@ -16,10 +16,16 @@ pushd build
         -DZLIB_LIBRARY=$PREFIX/lib/libz${SHLIB_EXT} \
         -DZLIB_INCLUDE_DIR=$PREFIX/include \
         -DBUILD_JPWL=OFF \
+        -DBUILD_TESTING=ON \
         "${CMAKE_PLATFORM_FLAGS[@]}" \
         $SRC_DIR
 
   make -j${CPU_COUNT} ${VERBOSE_CM}
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
+  # Only the tests that generate their own inputs; the rest of the suite reads
+  # images from the separate openjpeg-data repository, which is not vendored.
+  ctest --no-tests=error -R '^(testempty|tte|ttd|tda|rta)'
+fi
   make install -j${CPU_COUNT}
 
 popd
