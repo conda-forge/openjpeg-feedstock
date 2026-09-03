@@ -12,8 +12,6 @@ libpng:
 - '1.6'
 libtiff:
 - '4.7'
-openjpeg:
-- '2'
 target_platform:
 - win-64
 zlib:

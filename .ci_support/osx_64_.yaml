@@ -24,8 +24,6 @@ libtiff:
 - '4.7'
 macos_machine:
 - x86_64-apple-darwin13.4.0
-openjpeg:
-- '2'
 target_platform:
 - osx-64
 zip_keys:
